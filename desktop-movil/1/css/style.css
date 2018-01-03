@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+}
+.A-encabezado, .B-contenido, .C-contenido-lateral {
+  margin: 1em 1.25%; /*matiene un ligero margen entre todos los elementos*/
+  /*1em=16px*/
+  /*sobran 5% que se utilizara entre todos los padding horizontales, los cuales son 4, 5%/4=1.25%*/
+  padding: 0;
+
+  /*1em=16px*/
+}
+
+.B-contenido, .C-contenido-lateral{
+  float: left; /*alineando, para obtener un moviento de los elementos cuando el tamaño de la pantalla cambie y se posicione uno abajo de otro.*/
+  box-sizing: border-box; /*para hacer q los elementos mantengan su tamaño definido y no piedan el desfinido que se les dio desde el inicio.*/
+  height: 300px;
+}
+.A-encabezado {
+  background-color: #F7EA00;
+  height: 80px;
+}
+.B-contenido {
+  width: 60%;
+  background-color: #34EAA9;
+}
+.C-contenido-lateral {
+  width: 35%;
+  background-color: #E486EA;
+}
+
+@media screen and (max-width: 480px) {
+  .B-contenido, .C-contenido-lateral {
+    width: 100%; /*posicionando al contenido lateral (C) debajo del contenido principal (B)*/
+    margin-right: 2.5%;
+  }
+  .C-contenido-lateral {
+    height: 100px;
+  }
+}
+
+/*medidas de las pantallas que serán especificadas*/
+/*@media screen and ( min-width : 780px) and ( max-width : 1024px) {
+  .A-encabezado {
+    background-color: orange;
+  }
+
+}*/
+/*@media screen and (min-width: 480px) and (max-width: 780px) {
+  .B-contenido, .C-contenido-lateral, .A-encabezado {
+    width: 100%; /*posicionando al contenido lateral (C) debajo del contenido principal (B)*/
+/*  }
+
+}*/
+
+/*handheld, se usa para pequeños dispositivos de mano, como móviles*/

@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+}
+.A-encabezado, .B-contenido, .F-contenido-lateral {
+  margin: 1em 1.25%; /*matiene un ligero margen entre todos los elementos*/
+  /*1em=16px*/
+  /*sobran 5% que se utilizara entre todos los padding horizontales, los cuales son 4, 5%/4=1.25%*/
+  padding: 0;
+
+  /*1em=16px*/
+}
+
+[class*="article-"], .B-contenido{
+  box-sizing: border-box; /*para hacer q los elementos mantengan su tamaño definido y no piedan el desfinido que se les dio desde el inicio.*/
+  height: 150px;
+}
+
+.F-contenido-lateral{
+  float: left; /*alineando, para obtener un moviento de los elementos cuando el tamaño de la pantalla cambie y se posicione uno abajo de otro.*/
+  box-sizing: border-box; /*para hacer q los elementos mantengan su tamaño definido y no piedan el desfinido que se les dio desde el inicio.*/
+  height: 300px;
+}
+
+[class*="article-"]{
+  margin: 1em 0.4166666666666667%;
+  width: 19%;
+  display: inline-block;
+  float: left;
+}
+
+.A-encabezado {
+  background-color: #F7EA00;
+  height: 80px;
+}
+.B-contenido {
+  width: 58%;
+  background-color: #34EAA9;
+}
+.F-contenido-lateral {
+  width: 35%;
+  background-color: #E486EA;
+}
+.article-C {
+    background-color: #36B6E8;
+}
+.article-D {
+    background-color: #E836B1;
+}
+.article-E {
+    background-color: #F7B93C;
+}
+
+@media screen and (max-width: 480px) {
+  .B-contenido, .F-contenido-lateral {
+    width: 100%; /*posicionando al contenido lateral (C) debajo del contenido principal (B)*/
+  }
+  .F-contenido-lateral {
+    height: 100px;
+  }
+  [class*="article-"]{
+    width: 31%
+    margin: 1em 1.1666666666666667%;
+    height: 100px;
+
+  }
+
+}

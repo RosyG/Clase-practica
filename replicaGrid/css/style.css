@@ -1,0 +1,34 @@
+body {
+  background-color: red;
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.row::before, row::after {
+  /*posicionando las columnas*/
+  content: "";
+  display: table;/*comportamiendo de tabla*/
+  clear: both;/*limpia el float*/
+}
+ [class*="col-"] {
+   float: left;
+   min-height: 7px;
+   padding: 12px;/*Creando gutters, espacio entre columnas*/
+ }
+/*Todas las clases que tengan nombre de clase num-col, van a tener los siguientes estilo*/
+/*(100/12)*num de columnas*/
+@@media all and (max-width: 450px) {
+  /*para todo tipo de pantallas, todas las clases con comienzo col- tendrán un width de 100%}*/
+  [class*="col-"]{
+    width: 100%;
+  }
+}
