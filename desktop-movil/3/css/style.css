@@ -2,87 +2,98 @@
   max-width: 1200px;/*Hace que se ajuste */
   width: 100%; /*es lo mismo que 1200px.*/
   margin: 0 auto; /*para centrar el contenedor.*/
-  height: 445px;
+  height: 34.2em;
   border: 1px solid black;
+  background-color: pink;
 }
-.A-encabezado, .content-section, .H-contenido-lateral {
-  margin: 1em 1.25%; /*matiene un ligero margen entre todos los elementos*/
-  /*1em=16px*/
-  /*sobran 5% que se utilizara entre todos los padding horizontales, los cuales son 4, 5%/4=1.25%*/
-  padding: 0;
+* {
+  box-sizing: border-box;/*para que los elemento no se desborden*/
+}
+/*Definiendo columns & rows*/
 
-  /*1em=16px*/
+[class*="row-"]:before {
+  content: "";
+  display: table;/*comportamiendo de tabla.*/
 }
-
-.content-section{
-  box-sizing: border-box; /*para hacer q los elementos mantengan su tamaño definido y no piedan el desfinido que se les dio desde el inicio.*/
-  height: 170px;
+[class*="row-"]:after {
+  clear: both; /*limpia el float.*/
 }
-
-.H-contenido-lateral{
-  float: left; /*alineando, para obtener un moviento de los elementos cuando el tamaño de la pantalla cambie y se posicione uno abajo de otro.*/
-  box-sizing: border-box; /*para hacer q los elementos mantengan su tamaño definido y no piedan el desfinido que se les dio desde el inicio.*/
-  height: 300px;
+/*Definiendo caracteristicas de las columnas.*/
+[class*="colum-"] {
+  float: left;/*Sirve para ir acomodando a las columnas a la izquierada.*/
+/*  min-height: 7px;/*minimo aunque no haya nada, 7px es un estándar*/
+  padding: 12px;/*Creando gutters, espacio entre columnas*/
+  border: 0.5em solid white;
 }
-
-[class*="article-"]{
-  margin-top: 1em;
-  width: 31%;
-  display: inline-block;
-  float: left;
-  height: 100px;
+[class*="articles-"] {
+  height: 7em;
 }
-
-.content-section {
-  width: 60%;
-  float: left;
-  height: 60%;
+#B {
+  background-color: #5EC9EA;
 }
-.H-contenido-lateral {
-  width: 35%;
-  background-color: #E486EA;
-  height: 320px;
+#C {
+  background-color: #E836B1;
 }
-/* IDEA: Definiendo el color de los contenedores */
-.A-encabezado {
-  background-color: #F7EA00;
-  height: 80px;
+#D {
+  background-color: #F7B93C;
 }
-.article-B {
-  background-color: #34EAA9;
-  margin-right: 1em;
+#E {
+  background-color: #ED5A5A;
 }
-.article-C {
-    background-color: #E836B1;
-    margin-right: 1em;
+#F {
+  background-color: #41EFB9;
 }
-.article-D {
-    background-color: #F7B93C;
+#G {
+  background-color: #92E542;
 }
-.article-E {
-    background-color: #ED5A5A;
-    margin-right: 1em;
+#section-H-up {
+  border-bottom-width: 0px;
 }
-.article-F {
-    background-color: #41EFB9;
-    margin-right: 1em;
-}
-.article-G {
-    background-color: #92E542;
+#section-H-down {
+  border-top-width: 0px;
 }
 
-@media screen and (max-width: 480px) {
-  .content-section, .H-contenido-lateral {
-    width: 100%; /*posicionando al contenido lateral (C) debajo del contenido principal (B)*/
+/*Todas las clases que tengan nombre de clase num-colum, van a tener los siguientes estilo*/
+/*(100/12)*num de columnas*/
+.colum-1 {width: 8.333333333333332%}
+.colum-2 {width: 16.666666666666664%}
+.colum-3 {width: 25%; background-color: #E486EA; height: 15em}
+.colum-4 {width: 33.33333333333333%}
+.colum-5 {width: 41.66666666666667%}
+.colum-6 {width: 50%}
+.colum-7 {width: 58.333333333333336%}
+.colum-8 {width: 66.66666666666666%}
+.colum-9 {width: 75%}
+.colum-10 {width: 83.33333333333334%}
+.colum-11 {width: 91.66666666666666%}
+.colum-12 {width: 100%; background-color: #F7EA00; height: 7em}
+
+/*Modificando la visualización de escritorio a móvil */
+@media screen and (max-width: 768px) {
+  #B, #C, #D, #E, #F, #section-H-up{
+    width: 33.33333333333333%;
+    height: 10em
   }
-  .H-contenido-lateral {
-    height: 100px;
-  }
-  [class*="article-"]{
-    width: 31%
-    margin: 1em 1.1666666666666667%;
-    height: 100px;
+#E {
+  background-color: #41EFB9;
+}
+#F {
+  background-color: #92E542;
+}
 
+  [class*="articles"] {
+    width: 100%;
   }
-
+  #G {
+    background-color: #E486EA;
+    width: 50%;
+    height: 7em;
+    border-right-width: 0px;
+  }
+  #section-H-up {
+    background-color: #ED5A5A; border-bottom-width: 0.5em; border-right-width: 0.5em; width: 33.33333333333333%;
+  }
+  #section-H-down {
+    width: 50%; border-top-width: 0.5em; border-left-width: 0px; height: 7em
+  }
 }

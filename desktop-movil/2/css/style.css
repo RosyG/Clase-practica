@@ -2,80 +2,85 @@
   max-width: 1200px;/*Hace que se ajuste */
   width: 100%; /*es lo mismo que 1200px.*/
   margin: 0 auto; /*para centrar el contenedor.*/
-  height: 445px;
+  height: 37.2em;
   border: 1px solid black;
+  background-color: pink;
 }
-.A-encabezado, .content-section, .F-contenido-lateral {
-  margin: 1em 1.25%; /*matiene un ligero margen entre todos los elementos*/
-  /*1em=16px*/
-  /*sobran 5% que se utilizara entre todos los padding horizontales, los cuales son 4, 5%/4=1.25%*/
-  padding: 0;
+* {
+  box-sizing: border-box;/*para que los elemento no se desborden*/
+}
+/*Definiendo columns & rows*/
 
-  /*1em=16px*/
+[class*="row-"]:before {
+  content: "";
+  display: table;/*comportamiendo de tabla.*/
 }
-
-.content-section{
-  box-sizing: border-box; /*para hacer q los elementos mantengan su tamaño definido y no piedan el desfinido que se les dio desde el inicio.*/
-  height: 170px;
+[class*="row-"]:after {
+  clear: both; /*limpia el float.*/
 }
-
-.F-contenido-lateral{
-  float: left; /*alineando, para obtener un moviento de los elementos cuando el tamaño de la pantalla cambie y se posicione uno abajo de otro.*/
-  box-sizing: border-box; /*para hacer q los elementos mantengan su tamaño definido y no piedan el desfinido que se les dio desde el inicio.*/
-  height: 300px;
+/*Definiendo caracteristicas de las columnas.*/
+[class*="colum-"] {
+  float: left;/*Sirve para ir acomodando a las columnas a la izquierada.*/
+/*  min-height: 7px;/*minimo aunque no haya nada, 7px es un estándar*/
+  padding: 12px;/*Creando gutters, espacio entre columnas*/
+  border: 0.5em solid white;
 }
-
-[class*="article-"]{
-  margin-top: 1em;
-  width: 31%;
-  display: inline-block;
-  float: left;
-  height: 100px;
+#C {
+  background-color: #36B6E8;
 }
-
-.content-section {
-  width: 58%;
-  float: left;
-  height: 60%;
+#D {
+  background-color: #E836B1;
 }
-.F-contenido-lateral {
-  width: 35%;
-  background-color: #E486EA;
-  height: 320px;
-}
-/* IDEA: Definiendo el color de los contenedores */
-.A-encabezado {
-  background-color: #F7EA00;
-  height: 80px;
-}
-.B-contenido {
-  background-color: #34EAA9;
-  height: 200px;
-}
-.article-C {
-    background-color: #36B6E8;
-    margin-right: 1em;
-}
-.article-D {
-    background-color: #E836B1;
-    margin-right: 1em;
-}
-.article-E {
-    background-color: #F7B93C;
+#E {
+  background-color: #F7B93C;
 }
 
+#section-F-up {
+  border-bottom-width: 0px;
+}
+#section-F-down {
+  border-top-width: 0px;
+}
+
+/*Todas las clases que tengan nombre de clase num-colum, van a tener los siguientes estilo*/
+/*(100/12)*num de columnas*/
+.colum-1 {width: 8.333333333333332%}
+.colum-2 {width: 16.666666666666664%}
+.colum-3 {width: 25%; background-color: #E486EA; height: 15em}
+.colum-4 {width: 33.33333333333333%}
+.colum-5 {width: 41.66666666666667%}
+.colum-6 {width: 50%}
+.colum-7 {width: 58.333333333333336%}
+.colum-8 {width: 66.66666666666666%}
+.colum-9 {width: 75%; background-color: #34EAA9; height: 15em}
+.colum-10 {width: 83.33333333333334%}
+.colum-11 {width: 91.66666666666666%}
+.colum-12 {width: 100%; background-color: #F7EA00; height: 7em}
+
+/*Modificando la visualización de escritorio a móvil */
 @media screen and (max-width: 768px) {
-  .content-section, .F-contenido-lateral {
-    width: 100%; /*posicionando al contenido lateral (C) debajo del contenido principal (B)*/
+  .colum-3 {
+    width: 33.33333333333333%;
   }
-  .F-contenido-lateral {
-    height: 100px;
+  #section-F-up {
+    background-color: #36B6E8; border-bottom-width: 0.5em; border-right-width: 0.5em
   }
-  [class*="article-"]{
-    width: 31%
-    margin: 1em 1.1666666666666667%;
-    height: 100px;
-
+  #C {
+    background-color: #E836B1; border-right-width: 0.5em
   }
-
+  #C, #D, #section-F-up{
+    height: 9em;
+  }
+  #E {
+    background-color: #E486EA; border-right-width: 0px; width: 50%; height: 6em
+  }
+  #D {
+    background-color: #F7B93C; border-left-width: 0.5em
+  }
+  .colum-9, .articles {
+    width: 100%;
+  }
+  #section-F-down {
+    border-top-width: 0.5em; border-left-width: 0px; width: 50%; height: 6em
+  }
 }

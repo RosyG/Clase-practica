@@ -2,31 +2,14 @@
   max-width: 1200px;/*Hace que se ajuste */
   width: 100%; /*es lo mismo que 1200px.*/
   margin: 0 auto; /*para centrar el contenedor.*/
-  height: 445px;
+  height: 27.2em;
   border: 1px solid black;
   background-color: pink;
 }
 * {
   box-sizing: border-box;/*para que los elemento no se desborden*/
 }
-
-.B-contenido, .C-contenido-lateral{
-  height: 300px;
-}
-.A-encabezado {
-  /*background-color: #F7EA00;*/
-  height: 80px;
-}
-/*.B-contenido {
-  background-color: #34EAA9;
-}
-.C-contenido-lateral {
-  background-color: #E486EA;
-}*/
-
-/*Definiendo columnas*/
-
-/*Definiendo las filas-rows*/
+/*Definiendo columns & rows*/
 
 [class*="row-"]:before {
   content: "";
@@ -40,45 +23,44 @@
   float: left;/*Sirve para ir acomodando a las columnas a la izquierada.*/
 /*  min-height: 7px;/*minimo aunque no haya nada, 7px es un estándar*/
   padding: 12px;/*Creando gutters, espacio entre columnas*/
-  border: 7px solid white;
+  border: 0.5em solid white;
 }
-
-
-@media screen and (max-width: 480px) {
-  .B-contenido, .C-contenido-lateral {
-    width: 100%; /*posicionando al contenido lateral (C) debajo del contenido principal (B)*/
-  }
-  .C-contenido-lateral {
-    height: 100px;
-  }
-}
-
-/*medidas de las pantallas que serán especificadas*/
-/*@media screen and ( min-width : 780px) and ( max-width : 1024px) {
-  .A-encabezado {
-    background-color: orange;
-  }
-
-}*/
-/*@media screen and (min-width: 480px) and (max-width: 780px) {
-  .B-contenido, .C-contenido-lateral, .A-encabezado {
-    width: 100%; /*posicionando al contenido lateral (C) debajo del contenido principal (B)*/
-/*  }
-
-}*/
-/*handheld, se usa para pequeños dispositivos de mano, como móviles*/
 
 /*Todas las clases que tengan nombre de clase num-colum, van a tener los siguientes estilo*/
 /*(100/12)*num de columnas*/
 .colum-1 {width: 8.333333333333332%}
 .colum-2 {width: 16.666666666666664%}
-.colum-3 {width: 25%; background-color: #E486EA}
+.colum-3 {width: 25%; background-color: #E486EA; height: 20em}
 .colum-4 {width: 33.33333333333333%}
 .colum-5 {width: 41.66666666666667%}
 .colum-6 {width: 50%}
 .colum-7 {width: 58.333333333333336%}
 .colum-8 {width: 66.66666666666666%}
-.colum-9 {width: 75%; background-color: #34EAA9}
+.colum-9 {width: 75%; background-color: #34EAA9; height: 20em}
 .colum-10 {width: 83.33333333333334%}
 .colum-11 {width: 91.66666666666666%}
-.colum-12 {width: 100%; background-color: #F7EA00}
+.colum-12 {width: 100%; background-color: #F7EA00; height: 7em}
+
+/*Modificando la visualización de escritorio a móvil */
+@media screen and (max-width: 768px) {
+  .colum-9, .colum-3 {
+    width: 100%; /*posicionando al contenido lateral (C) debajo del contenido principal (B)*/
+  }
+  .colum-3 {
+    height: 7em;
+  }
+}
+/*medidas de las pantallas que serán especificadas*/
+/*@media screen and ( min-width : 780px) and ( max-width : 1024px) {
+.A-encabezado {
+background-color: orange;
+}
+
+}*/
+/*@media screen and (min-width: 480px) and (max-width: 780px) {
+.B-contenido, .C-contenido-lateral, .A-encabezado {
+width: 100%; /*posicionando al contenido lateral (C) debajo del contenido principal (B)*/
+/*  }
+
+}*/
+/*handheld, se usa para pequeños dispositivos de mano, como móviles*/
